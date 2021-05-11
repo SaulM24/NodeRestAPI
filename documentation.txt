@@ -1,0 +1,199 @@
+Description: Get all the cars from the database
+Endpoint: http://localhost:3002/api/v1/car
+Method: GET
+Params: none
+Request Payload: none
+Response:
+[
+    {
+        "id": 1,
+        "make": "Nissan",
+        "model": "Murano",
+        "year": "2015",
+        "user_id": 1,
+        "active": true,
+        "created_by": "lphan",
+        "updated_by": "lphan",
+        "created_at": "2021-05-10T09:07:34.880Z",
+        "updated_at": "2021-05-10T09:12:09.003Z",
+        "deleted_at": null,
+        "mileage": null
+    },
+    {
+        "id": 2,
+        "make": "Nissan",
+        "model": "350z",
+        "year": "2018",
+        "user_id": 1,
+        "active": true,
+        "created_by": "lphan",
+        "updated_by": null,
+        "created_at": "2021-05-10T09:07:42.372Z",
+        "updated_at": "2021-05-10T09:07:42.372Z",
+        "deleted_at": null,
+        "mileage": null
+    },
+    {
+        "id": 3,
+        "make": "Nissan",
+        "model": "Maxima",
+        "year": "2018",
+        "user_id": 2,
+        "active": true,
+        "created_by": "lphan",
+        "updated_by": null,
+        "created_at": "2021-05-10T09:07:54.905Z",
+        "updated_at": "2021-05-10T09:07:54.905Z",
+        "deleted_at": null,
+        "mileage": null
+    },
+    {
+        "id": 4,
+        "make": null,
+        "model": "350z",
+        "year": null,
+        "user_id": null,
+        "active": true,
+        "created_by": "lphan",
+        "updated_by": null,
+        "created_at": "2021-05-10T23:38:00.837Z",
+        "updated_at": "2021-05-10T23:38:00.837Z",
+        "deleted_at": null,
+        "mileage": null
+    },
+    {
+        "id": 5,
+        "make": "Nissan",
+        "model": "350z",
+        "year": null,
+        "user_id": null,
+        "active": true,
+        "created_by": "lphan",
+        "updated_by": null,
+        "created_at": "2021-05-10T23:38:56.912Z",
+        "updated_at": "2021-05-10T23:38:56.912Z",
+        "deleted_at": null,
+        "mileage": null
+    }
+]
+
+------------------------------------------------------------------
+
+Description: Get a car by its ID from the database
+Endpoint: http://localhost:3002/api/v1/car/id/1
+Method: GET
+Params: 1
+Request Payload: none
+Response:
+{
+    "data": {
+        "id": 1,
+        "make": "Nissan",
+        "model": "Murano",
+        "year": "2015",
+        "user_id": 1,
+        "active": true,
+        "created_by": "lphan",
+        "updated_by": "lphan",
+        "created_at": "2021-05-10T09:07:34.880Z",
+        "updated_at": "2021-05-10T09:12:09.003Z",
+        "deleted_at": null,
+        "mileage": null
+    },
+    "statusCode": 200
+}
+
+-------------------------------------------------------------------
+
+Description: Create a new car record
+Endpoint: http://localhost:3002/api/v1/car/create-car
+Method: POST
+Params: none
+Request Payload:
+{
+    "make": "Dodge",
+    "model": "Ram",
+    "year": "2021",
+    "mileage": "24",
+    "color": "red"
+}
+Response:
+{
+    "message": "success",
+    "resp": {
+        "data": {
+            "id": 7,
+            "make": "Dodge",
+            "model": "Ram",
+            "year": "2021",
+            "user_id": null,
+            "active": true,
+            "created_by": "lphan",
+            "updated_by": null,
+            "created_at": "2021-05-11T01:48:29.701Z",
+            "updated_at": "2021-05-11T01:48:29.701Z",
+            "deleted_at": null,
+            "mileage": "24",
+            "color": "red"
+        },
+        "statusCode": 200
+    }
+}
+
+--------------------------------------------------------------------
+
+Description: Update a car record
+Endpoint: http://localhost:3002/api/v1/car/update-car/id/10
+Method: PUT
+Params: 10
+Request Payload:
+{
+    "color": "yellow"
+}
+Response:
+{
+    "message": "success",
+    "resp": {
+        "data": {
+            "id": 10,
+            "make": "Nissan",
+            "model": "GTR",
+            "year": "2021",
+            "user_id": null,
+            "active": true,
+            "created_by": "lphan",
+            "updated_by": "lphan",
+            "created_at": "2021-05-11T01:51:00.797Z",
+            "updated_at": "2021-05-11T02:16:01.195Z",
+            "deleted_at": null,
+            "mileage": "24",
+            "color": "yellow"
+        },
+        "statusCode": 200
+    }
+}
+
+--------------------------------------------------------------------
+
+Description: Delete a car record
+Endpoint: http://localhost:3002/api/v1/car//delete-car/id/11
+Method: DELETE
+Params: 11
+Request Payload: none
+Response:
+{
+    "message": "success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
+        },
+        "statusCode": 200
+    }
+}
